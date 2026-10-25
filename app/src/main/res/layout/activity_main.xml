@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
+
+
+    <!-- =========================
+         TOOLBAR
+         ========================= -->
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/birumuda"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            app:title="EduShare"
+            app:subtitle="Berbagi Ilmu, Tumbuh Bersama"
+            app:titleTextColor="#10264F"
+            app:subtitleTextColor="#64748B" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+
+            <!-- =========================
+                 SEARCH
+                 ========================= -->
+
+            <EditText
+                android:id="@+id/edtSearch"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+
+                android:background="@drawable/bg_edittext"
+
+                android:hint="Cari materi, mata kuliah, atau topik..."
+                android:inputType="text"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+
+                android:textColor="#10264F"
+                android:textColorHint="#7186A5"
+                android:textSize="14sp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <!-- =========================
+                 JUDUL
+                 ========================= -->
+
+
+            <!-- =========================
+                 DETAIL
+                 ========================= -->
+
+
+            <!-- =========================
+                 LOGOUT
+                 ========================= -->
+
+            <Button
+                android:id="@+id/btn_Detail"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+
+                android:layout_marginTop="172dp"
+                android:backgroundTint="@color/button"
+                android:text="Cek Detail"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtSearch" />
+
+            <Button
+                android:id="@+id/btn_LogOut"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="30dp"
+
+                android:backgroundTint="#F04444"
+                android:text="Logout"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_Detail"
+                app:layout_constraintVertical_bias="0.033" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

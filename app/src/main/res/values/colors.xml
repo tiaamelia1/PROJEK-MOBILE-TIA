@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dongker">#10264F</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="biru">#1677F2</color>
+    <color name="birumuda">#EAF3FF</color>
+    <color name="abu">#64748B</color>
+    <color name="judul">#0B1B32</color>
+    <color name="orange">#FF9F0A</color>
+    <color name="merah">#F04444</color>
+    <color name="hijau">#22A35A</color>
+    <color name="background">#83A6CE</color>
+    <color name="button">#1677F2</color>
+</resources>

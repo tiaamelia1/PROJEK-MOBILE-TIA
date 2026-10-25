@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">pertemuan3_tia</string>
+    <string name="deskripsi">Selamat Datang</string>
+    <string name="deskripsi_judul">EduShare – Aplikasi Berbagi Catatan dan Materi Pembelajaran Mahasiswa
+        Platform mobile untuk mahasiswa berbagi rangkuman materi, catatan perkuliahan, latihan soal, dan sumber belajar.
+        Pengguna dapat mencari materi berdasarkan mata kuliah dan memberikan rating atau bookmark pada materi
+        yang bermanfaat. </string>
+    <string name="judul">Judul</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
