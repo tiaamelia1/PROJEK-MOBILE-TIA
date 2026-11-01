@@ -12,36 +12,37 @@
     tools:context=".MainActivity">
 
 
-    <!-- =========================
-         TOOLBAR
-         ========================= -->
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        app:elevation="0dp">
+        android:layout_height="180dp">
+
+        <View
+            android:id="@+id/background_header"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:background="@drawable/bg_header_wave"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:background="@color/birumuda"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            app:title="EduShare"
-            app:subtitle="Berbagi Ilmu, Tumbuh Bersama"
-            app:titleTextColor="#10264F"
-            app:subtitleTextColor="#64748B" />
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_marginTop="100dp"
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -49,70 +50,153 @@
             android:padding="20dp">
 
 
-            <!-- =========================
-                 SEARCH
-                 ========================= -->
 
             <EditText
                 android:id="@+id/edtSearch"
                 android:layout_width="0dp"
                 android:layout_height="56dp"
-
                 android:background="@drawable/bg_edittext"
-
                 android:hint="Cari materi, mata kuliah, atau topik..."
                 android:inputType="text"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-
                 android:textColor="#10264F"
                 android:textColorHint="#7186A5"
                 android:textSize="14sp"
-
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+            <TextView
+                android:id="@+id/txtKategori"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Kategori Materi"
+                android:textColor="#10264F"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/edtSearch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gridMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                app:columnCount="2"
+                app:useDefaultMargins="true"
+                app:layout_constraintTop_toBottomOf="@id/txtKategori"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCatatan"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:text="Catatan"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:backgroundTint="@color/button"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRangkuman"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:text="Rangkuman"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:backgroundTint="@color/button"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLatihanSoal"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:text="Latihan Soal"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:backgroundTint="@color/button"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMateriKuliah"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:text="Materi Kuliah"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:backgroundTint="@color/button"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBuku"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:text="Buku"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:backgroundTint="@color/button"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFavorit"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:text="Favorit"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:backgroundTint="@color/button"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+            </androidx.gridlayout.widget.GridLayout>
+
 
 
             <Button
                 android:id="@+id/btn_Detail"
                 android:layout_width="0dp"
                 android:layout_height="52dp"
-
-                android:layout_marginTop="172dp"
+                android:layout_marginTop="44dp"
                 android:backgroundTint="@color/button"
                 android:text="Cek Detail"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtSearch" />
+                app:layout_constraintTop_toBottomOf="@id/gridMenu" />
 
             <Button
                 android:id="@+id/btn_LogOut"
                 android:layout_width="0dp"
                 android:layout_height="52dp"
-
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="30dp"
-
-                android:backgroundTint="#F04444"
+                android:backgroundTint="@color/merah"
                 android:text="Logout"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"
                 android:textStyle="bold"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_Detail"
-                app:layout_constraintVertical_bias="0.033" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
