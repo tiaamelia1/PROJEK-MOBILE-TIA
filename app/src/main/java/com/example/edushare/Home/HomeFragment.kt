@@ -1,3 +1,4 @@
+
 package com.example.edushare.Home
 
 import android.content.Intent
@@ -24,8 +25,6 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Mengaktifkan Option Menu pada Fragment
         setHasOptionsMenu(true)
     }
 
@@ -34,7 +33,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentHomeBinding.inflate(
             inflater,
             container,
@@ -50,71 +48,38 @@ class HomeFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        // =========================
-        // TOOLBAR
-        // =========================
+        // HEADER EDUSHARE
+        binding.txtLogo.text = "EduShare"
+        binding.txtSubtitle.text = "Berbagi Ilmu, Tumbuh Bersama"
 
-        (requireActivity() as AppCompatActivity)
-            .setSupportActionBar(binding.toolbar)
-
-        (requireActivity() as AppCompatActivity)
-            .supportActionBar?.apply {
-
-                title = "EduShare"
-                subtitle = "Berbagi ilmu, Tumbuh bersama"
-            }
-
-
-        // =========================
         // SHARED PREFERENCES
-        // =========================
-
-        val sharedPref = requireContext()
-            .getSharedPreferences(
-                "user_pref",
-                AppCompatActivity.MODE_PRIVATE
-            )
-
-        val user = sharedPref.getString(
-            "username",
-            ""
+        val sharedPref = requireContext().getSharedPreferences(
+            "user_pref",
+            AppCompatActivity.MODE_PRIVATE
         )
 
+        val user = sharedPref.getString("username", "")
 
-        // =========================
         // TOMBOL DETAIL
-        // =========================
-
         binding.btnDetail.setOnClickListener {
-
             val intent = Intent(
                 requireContext(),
                 DetailActivity::class.java
             )
-
             startActivity(intent)
         }
 
-
-        // =========================
         // TOMBOL LOGOUT
-        // =========================
-
         binding.btnLogOut.setOnClickListener {
-
             AlertDialog.Builder(requireContext())
                 .setTitle("Yakin mau keluar?")
                 .setMessage("Udah hapal password kan?")
-
                 .setPositiveButton("Iyaa") { _, _ ->
 
-                    // Hapus data login
-                    sharedPref
-                        .edit()
+                    sharedPref.edit()
                         .clear()
                         .apply()
 
-                    // Kembali ke Login
                     val intent = Intent(
                         requireContext(),
                         LoginActivity::class.java
@@ -126,34 +91,18 @@ class HomeFragment : Fragment() {
 
                     startActivity(intent)
                 }
-
-                .setNegativeButton(
-                    "Gk jadi dehh",
-                    null
-                )
-
+                .setNegativeButton("Gk jadi dehh", null)
                 .show()
         }
     }
-
 
     override fun onCreateOptionsMenu(
         menu: Menu,
         inflater: MenuInflater
     ) {
-
-        // Mengambil menu dari main_menu.xml
-        inflater.inflate(
-            R.menu.main_menu,
-            menu
-        )
-
-        super.onCreateOptionsMenu(
-            menu,
-            inflater
-        )
+        inflater.inflate(R.menu.main_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
-
 
     override fun onOptionsItemSelected(
         item: MenuItem
@@ -161,31 +110,23 @@ class HomeFragment : Fragment() {
 
         return when (item.itemId) {
 
-            // Menu Search
             R.id.action_search -> {
-
                 Toast.makeText(
                     requireContext(),
                     "Search Clicked",
                     Toast.LENGTH_SHORT
                 ).show()
-
                 true
             }
 
-
-            // Menu Settings
             R.id.action_settings -> {
-
                 Toast.makeText(
                     requireContext(),
                     "Settings Clicked",
                     Toast.LENGTH_SHORT
                 ).show()
-
                 true
             }
-
 
             else -> super.onOptionsItemSelected(item)
         }
@@ -193,7 +134,6 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-
         _binding = null
     }
 }
