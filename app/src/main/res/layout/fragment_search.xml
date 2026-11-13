@@ -51,49 +51,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtSubtitle" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroupFilter"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginTop="16dp"
-        app:singleSelection="true"
-        app:selectionRequired="true"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabTextColor="#7890AD"
+        app:tabSelectedTextColor="#10264F"
+        app:tabIndicatorColor="#10264F"
+        app:tabIndicatorHeight="3dp"
+        app:tabIndicatorFullWidth="false"
+        app:tabRippleColor="#E6EEF8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edtSearch">
+        app:layout_constraintTop_toBottomOf="@id/edtSearch" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipSemua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Semua"
-            style="@style/Widget.MaterialComponents.Chip.Filter" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipCatatan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Catatan"
-            style="@style/Widget.MaterialComponents.Chip.Filter" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipRangkuman"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rangkuman"
-            style="@style/Widget.MaterialComponents.Chip.Filter" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipLatihanSoal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Latihan Soal"
-            style="@style/Widget.MaterialComponents.Chip.Filter" />
-
-    </com.google.android.material.chip.ChipGroup>
     <TextView
         android:id="@+id/txtHasil"
         android:layout_width="0dp"
@@ -107,7 +83,7 @@
         android:textColor="#10264F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/txtJumlah"
-        app:layout_constraintTop_toBottomOf="@id/chipGroupFilter" />
+        app:layout_constraintTop_toBottomOf="@id/tabLayout" />
 
     <TextView
         android:id="@+id/txtJumlah"
@@ -121,14 +97,11 @@
         app:layout_constraintTop_toTopOf="@id/txtHasil"
         app:layout_constraintBottom_toBottomOf="@id/txtHasil" />
 
-    <ListView
-        android:id="@+id/listMateri"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        android:paddingBottom="8dp"
         android:clipToPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

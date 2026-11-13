@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,444 +7,258 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".MainActivity">
+    tools:context=".Home.HomeFragment">
 
-    <!-- HEADER EDUSHARE -->
+    <!-- Header dengan background wave -->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerContainer"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:background="#FFFFFF"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp">
+        android:layout_height="180dp">
 
-        <TextView
-            android:id="@+id/txtLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EduShare"
-            android:textColor="#10264F"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/txtSubtitle"
-            app:layout_constraintVertical_chainStyle="packed"/>
-
-        <TextView
-            android:id="@+id/txtSubtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Berbagi Ilmu, Tumbuh Bersama"
-            android:textColor="#7890AD"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@id/txtLogo"
-            app:layout_constraintTop_toBottomOf="@id/txtLogo"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <TextView
-            android:id="@+id/btnNotification"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:gravity="center"
-            android:text="♧"
-            android:textColor="#10264F"
-            android:textSize="28sp"
+        <View
+            android:id="@+id/background_header"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:background="@drawable/bg_header_wave"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:title="EduShare"
+            app:subtitle="Berbagi Ilmu, Tumbuh Bersama"
+            app:titleTextColor="#FFFFFF"
+            app:subtitleTextColor="#FFFFFF"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- KONTEN YANG BISA DI-SCROLL -->
+    <!-- Konten Home -->
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="110dp"
-        android:fillViewport="true">
+        android:layout_marginTop="150dp"
+        android:fillViewport="true"
+        android:clipToPadding="false">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- SEARCH -->
+            <!-- Pencarian -->
             <EditText
                 android:id="@+id/edtSearch"
-                android:layout_width="0dp"
-                android:layout_height="55dp"
-                android:background="@drawable/bg_edittext"
-                android:hint="Cari materi, mata kuliah, atau topik..."
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:drawableStart="@android:drawable/ic_menu_search"
-                android:drawablePadding="12dp"
-                android:inputType="text"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:textColor="#10264F"
-                android:textColorHint="#7890AD"
-                android:textSize="14sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                android:drawablePadding="10dp"
+                android:hint="Cari catatan atau materi..."
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:singleLine="true"
+                android:textSize="14sp" />
 
-            <!-- BANNER INFORMASI -->
-            <com.google.android.material.card.MaterialCardView
+            <!-- Banner -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cardBanner"
-                android:layout_width="0dp"
-                android:layout_height="145dp"
-                android:layout_marginTop="16dp"
-                app:cardBackgroundColor="#C8E0FF"
+                android:layout_width="match_parent"
+                android:layout_height="155dp"
+                android:layout_marginTop="22dp"
+                app:cardBackgroundColor="#1677F2"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:layout_constraintTop_toBottomOf="@id/edtSearch"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:cardElevation="3dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical"
-                    android:padding="18dp">
+                    android:padding="20dp">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:id="@+id/txtBanner"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Satu catatan\nbisa jadi penyelamat\nuntuk banyak orang."
-                        android:textColor="#0751B5"
+                        android:text="Satu catatan bisa jadi penyelamat untuk banyak orang."
+                        android:textColor="#FFFFFF"
                         android:textSize="20sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:id="@+id/txtBannerDesc"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Yuk, berbagi dan temukan materi\npembelajaran terbaik di EduShare!"
-                        android:textColor="#4777B5"
-                        android:textSize="12sp"/>
+                        android:layout_marginTop="8dp"
+                        android:text="Bagikan ilmu dan bantu teman belajar bersama."
+                        android:textColor="#EAF3FF"
+                        android:textSize="13sp"
+                        app:layout_constraintTop_toBottomOf="@id/txtBanner"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- INDIKATOR BANNER -->
+            <!-- Indikator Banner -->
             <LinearLayout
-                android:id="@+id/bannerIndicator"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12dp"
                 android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/cardBanner"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:orientation="horizontal">
 
             </LinearLayout>
 
-            <!-- JUDUL KATEGORI -->
+            <!-- Judul Kategori -->
             <TextView
-                android:id="@+id/txtKategori"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="25dp"
                 android:text="Kategori Materi"
                 android:textColor="#10264F"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/bannerIndicator"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-            <!-- GRID KATEGORI -->
-            <androidx.gridlayout.widget.GridLayout
+            <!-- Grid Kategori -->
+            <GridLayout
                 android:id="@+id/gridMenu"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:columnCount="1"
-                app:useDefaultMargins="false"
-                app:layout_constraintTop_toBottomOf="@id/txtKategori"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:layout_marginTop="15dp"
+                android:columnCount="2"
+                android:rowCount="3"
+                android:useDefaultMargins="true">
 
-                <!-- CATATAN -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="82dp"
-                    android:layout_marginBottom="10dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="#D9D9F5"
-                    app:strokeWidth="1dp"
-                    app:layout_column="0">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
 
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:gravity="center"
+                        android:text="Pemrograman"
+                        android:textColor="#10264F"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="90dp"
-                            android:layout_height="60dp"
-                            android:background="#DDF2FF"
-                            android:gravity="center"
-                            android:text="▤"
-                            android:textColor="#0751B5"
-                            android:textSize="38sp"/>
+                </androidx.cardview.widget.CardView>
 
-                        <TextView
-                            android:id="@+id/btnCatatan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:text="Catatan"
-                            android:textColor="#10264F"
-                            android:textSize="20sp"
-                            android:textStyle="bold"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
 
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- RANGKUMAN -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="82dp"
-                    android:layout_marginBottom="10dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="#D9D9F5"
-                    app:strokeWidth="1dp"
-                    app:layout_column="0">
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:gravity="center"
+                        android:text="Basis Data"
+                        android:textColor="#10264F"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="90dp"
-                            android:layout_height="60dp"
-                            android:background="#DDF2FF"
-                            android:gravity="center"
-                            android:text="♟"
-                            android:textColor="#0751B5"
-                            android:textSize="38sp"/>
+                </androidx.cardview.widget.CardView>
 
-                        <TextView
-                            android:id="@+id/btnRangkuman"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:text="Rangkuman"
-                            android:textColor="#10264F"
-                            android:textSize="20sp"
-                            android:textStyle="bold"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
 
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- LATIHAN SOAL -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="82dp"
-                    android:layout_marginBottom="10dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="#D9D9F5"
-                    app:strokeWidth="1dp"
-                    app:layout_column="0">
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:gravity="center"
+                        android:text="Jaringan"
+                        android:textColor="#10264F"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="90dp"
-                            android:layout_height="60dp"
-                            android:background="#DDF2FF"
-                            android:gravity="center"
-                            android:text="▣"
-                            android:textColor="#0751B5"
-                            android:textSize="38sp"/>
+                </androidx.cardview.widget.CardView>
 
-                        <TextView
-                            android:id="@+id/btnLatihanSoal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:text="Latihan Soal"
-                            android:textColor="#10264F"
-                            android:textSize="20sp"
-                            android:textStyle="bold"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
 
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- MATERI KULIAH -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="82dp"
-                    android:layout_marginBottom="10dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="#D9D9F5"
-                    app:strokeWidth="1dp"
-                    app:layout_column="0">
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:gravity="center"
+                        android:text="Multimedia"
+                        android:textColor="#10264F"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="90dp"
-                            android:layout_height="60dp"
-                            android:background="#DDF2FF"
-                            android:gravity="center"
-                            android:text="▰"
-                            android:textColor="#0751B5"
-                            android:textSize="38sp"/>
+                </androidx.cardview.widget.CardView>
 
-                        <TextView
-                            android:id="@+id/btnMateriKuliah"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:text="Materi Kuliah"
-                            android:textColor="#10264F"
-                            android:textSize="20sp"
-                            android:textStyle="bold"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
 
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- BUKU -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="82dp"
-                    android:layout_marginBottom="10dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="#D9D9F5"
-                    app:strokeWidth="1dp"
-                    app:layout_column="0">
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:gravity="center"
+                        android:text="Machine Learning"
+                        android:textColor="#10264F"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="90dp"
-                            android:layout_height="60dp"
-                            android:background="#DDF2FF"
-                            android:gravity="center"
-                            android:text="▱"
-                            android:textColor="#0751B5"
-                            android:textSize="38sp"/>
+                </androidx.cardview.widget.CardView>
 
-                        <TextView
-                            android:id="@+id/btnBuku"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:text="Buku"
-                            android:textColor="#10264F"
-                            android:textSize="20sp"
-                            android:textStyle="bold"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
 
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- FAVORIT -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="82dp"
-                    android:layout_marginBottom="10dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="#D9D9F5"
-                    app:strokeWidth="1dp"
-                    app:layout_column="0">
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:gravity="center"
+                        android:text="Lainnya"
+                        android:textColor="#10264F"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="90dp"
-                            android:layout_height="60dp"
-                            android:background="#DDF2FF"
-                            android:gravity="center"
-                            android:text="☆"
-                            android:textColor="#0751B5"
-                            android:textSize="38sp"/>
+                </androidx.cardview.widget.CardView>
 
-                        <TextView
-                            android:id="@+id/btnFavorit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:text="Favorit"
-                            android:textColor="#10264F"
-                            android:textSize="20sp"
-                            android:textStyle="bold"/>
+            </GridLayout>
 
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-            </androidx.gridlayout.widget.GridLayout>
-
-            <!-- CEK DETAIL -->
-            <com.google.android.material.button.MaterialButton
+            <!-- Tombol Detail -->
+            <Button
                 android:id="@+id/btn_Detail"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Cek Detail"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                app:backgroundTint="#1677F2"
-                app:cornerRadius="20dp"
-                app:layout_constraintTop_toBottomOf="@id/gridMenu"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                android:text="Cek Detail" />
 
-            <!-- LOGOUT -->
-            <com.google.android.material.button.MaterialButton
+            <!-- Tombol Logout -->
+            <Button
                 android:id="@+id/btn_LogOut"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginBottom="25dp"
-                android:text="Logout"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                app:backgroundTint="#F04444"
-                app:cornerRadius="20dp"
-                app:layout_constraintTop_toBottomOf="@id/btn_Detail"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Logout" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

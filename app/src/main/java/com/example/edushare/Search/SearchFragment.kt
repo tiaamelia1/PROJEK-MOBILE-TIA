@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.edushare.databinding.FragmentSearchBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class SearchFragment : Fragment() {
 
@@ -34,69 +34,24 @@ class SearchFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dataMateri = listOf(
+        val tabsAdapter = SearchTabsAdapter(this)
 
-            MateriModel(
-                "Rangkuman Pemrograman Web",
-                "Teknik Informatika",
-                "Semester 3",
-                "4.8",
-                "WEB"
-            ),
+        binding.viewPager.adapter = tabsAdapter
 
-            MateriModel(
-                "Catatan Basis Data",
-                "Teknik Informatika",
-                "Semester 4",
-                "4.6",
-                "DB"
-            ),
+        TabLayoutMediator(
+            binding.tabLayout,
+            binding.viewPager
+        ) { tab, position ->
 
-            MateriModel(
-                "Latihan Soal Struktur Data",
-                "Teknik Informatika",
-                "Semester 3",
-                "4.7",
-                "SD"
-            ),
+            when (position) {
+                0 -> tab.text = "Catatan"
+                1 -> tab.text = "Rangkuman"
+                2 -> tab.text = "Latihan Soal"
+            }
 
-            MateriModel(
-                "Materi Jaringan Komputer",
-                "Teknik Informatika",
-                "Semester 4",
-                "4.5",
-                "JK"
-            ),
+        }.attach()
 
-            MateriModel(
-                "Rangkuman Algoritma & Pemrograman",
-                "Teknik Informatika",
-                "Semester 4",
-                "4.4",
-                "AL"
-            )
-        )
-
-        val adapter = MateriAdapter(
-            requireContext(),
-            dataMateri
-        )
-
-        binding.listMateri.adapter = adapter
-
-        binding.txtJumlah.text =
-            "${dataMateri.size} hasil"
-
-        binding.listMateri.setOnItemClickListener { _, _, position, _ ->
-
-            val materi = dataMateri[position]
-
-            Toast.makeText(
-                requireContext(),
-                materi.judul,
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+        binding.txtJumlah.text = "5 hasil"
     }
 
     override fun onDestroyView() {

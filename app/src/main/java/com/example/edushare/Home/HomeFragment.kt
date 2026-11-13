@@ -49,9 +49,15 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // HEADER EDUSHARE
-        binding.txtLogo.text = "EduShare"
-        binding.txtSubtitle.text = "Berbagi Ilmu, Tumbuh Bersama"
+        // HEADER EDUSHARE
+        (requireActivity() as AppCompatActivity)
+            .setSupportActionBar(binding.toolbar)
 
+        (requireActivity() as AppCompatActivity)
+            .supportActionBar?.apply {
+                title = "EduShare"
+                subtitle = "Berbagi Ilmu, Tumbuh Bersama"
+            }
         // SHARED PREFERENCES
         val sharedPref = requireContext().getSharedPreferences(
             "user_pref",

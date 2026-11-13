@@ -55,14 +55,12 @@
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listBookmark"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBookmark"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginTop="10dp"
-        android:divider="@null"
-        android:dividerHeight="0dp"
         android:paddingBottom="10dp"
         android:clipToPadding="false" />
 
